@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    min-width: 400px;
+    max-width: 600px;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid rgb(15, 65, 37);
+    border-radius: 5px;
+    padding: 7px 5px;
+}
+
+
+h3 {
+    color:rgb(15, 65, 37);
+    margin: 5px 0px;
+}
+
+h4 {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px 0px;
+}
+
+ul {
+    margin: 0px;
+    padding-left: 0px;
+    list-style: none;
+}
+
+p {
+    font-family:'Times New Roman', Times, serif;
+    margin: 5px 0px;
+}
+
+.parts-of-speech {
+    font-style: italic;
+}
+
+div {
+    width: 600px;
+    background-color: black
+}
