@@ -1,3 +1,4 @@
+// API key for the Merriam-Webster Dictionary API
 const dict_key = "16450aa8-91b4-40f8-a029-923295ab74d2"
 const thes_key = "c1c55072-9ee8-4cf8-b66a-f688ef151764"
 
@@ -21,6 +22,8 @@ const partsOfSpeech = {
 
 let word = ""
 
+// listen for an enter button on the input button. Then, fetch the word from 
+// in the input button and retrieve the dictionary API associated with it
 inputEl.addEventListener("keyup", async function(e) {
     if (e.key === "Enter") {
         word = inputEl.value
@@ -32,6 +35,7 @@ inputEl.addEventListener("keyup", async function(e) {
     }
 })
 
+// fetch the data from the dictionary API, and return the first suggested word
 async function fetchFromDictionaryAPI() {
     url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${dict_key}`
     try {
