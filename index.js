@@ -5,6 +5,7 @@ const wordEl = document.getElementById("word")
 const inputEl = document.getElementById("input-word")
 const posEl = document.getElementById("part-of-speech")
 const definitionsEl = document.getElementById("definitions")
+const errEl = document.getElementById("err")
 const partsOfSpeech = {
     "pronoun" : "pn.",
     "noun" : "n.",
@@ -13,7 +14,9 @@ const partsOfSpeech = {
     "adverb" : "adv.",
     "conjunction" : "conj.",
     "interjection" : "intj.",
-    "preposition" : "prep."
+    "preposition" : "prep.",
+    "auxiliary verb" : "aux v.",
+    "article" : "artc."
 }
 
 let word = ""
@@ -42,10 +45,23 @@ async function fetchFromDictionaryAPI() {
 
 function clear() {
     wordEl.innerHTML = ""
+    posEl.innerHTML = ""
     definitionsEl.innerHTML = ""
 }
 
 function render(dict) {
+    // the dictionary API returns an array of words you might have intended to type in
+    // if your word is not in their API. Then, since we retrieve the first object from
+    // the JSON, we can check to see if it is a string (meaning the word was mispelled),
+    // an object (the usual), or undefined (if the word is so jumbled none of the words match)
+    console.log(typeof dict)
+    if (typeof dict === "object") {
+        hideError()
+    } else if (typeof dict === "string") {
+        displayQuery(dict)
+    } else {
+        displayError()
+    }
     renderWord(dict)
     renderDefinitions(dict)
 }
@@ -71,3 +87,16 @@ function renderDefinitions(dict) {
     }
 }
 
+function hideError() {
+    errEl.style.display = "none"
+}
+
+function displayError() {
+    errEl.style.display = "block"
+    errEl.innerHTML = "Sorry, your word was not found"
+}
+
+function displayQuery(dict) {
+    errEl.style.display = "block"
+    errEl.innerHTML = `did you mean ${dict}?`
+}
