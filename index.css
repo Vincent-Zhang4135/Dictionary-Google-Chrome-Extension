@@ -25,30 +25,36 @@ h3 {
 
 h4 {
     font-family: 'Courier New', Courier, monospace;
-    margin: 10px 0px;
+    margin: 10px 0px 0px 0px;
 }
 
 ul {
     margin: 0px;
-    padding-left: 5px;
+    padding-left: 10px;
     list-style: none;
-}
-
-p {
-    font-family:'Times New Roman', Times, serif;
-    margin: 5px 0px;
-}
-
-.parts-of-speech {
-    font-style: italic;
-}
-
-div {
-    text-align: right;
-    font-size: 0.5em;
 }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+p {
+    font-family:'Times New Roman', Times, serif;
+    margin: 7px 0px;
+}
+
+.shortdef {
+    margin: 5px 0px;
+}
+
+#part-of-speech {
+    font-style: italic;
+    text-align: left;
+    margin: 0px;
+}
+
+#credits {
+    text-align: right;
+    font-size: 0.5em;
 }
